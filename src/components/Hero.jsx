@@ -1,43 +1,222 @@
+import styles from './Hero.module.css'
+
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Reveal from "./Reveal";
+import {Play, Sparkles } from "lucide-react";
+
+
+
+
+const nodes = [
+  { x: 50, y: 8, delay: "0s" },
+  { x: 72, y: 18, delay: "0.5s" },
+  { x: 88, y: 38, delay: "1s" },
+  { x: 82, y: 65, delay: "1.5s" },
+  { x: 62, y: 86, delay: "0.3s" },
+  { x: 38, y: 86, delay: "1.2s" },
+  { x: 18, y: 65, delay: "0.7s" },
+  { x: 12, y: 38, delay: "1.7s" },
+  { x: 28, y: 18, delay: "0.9s" },
+  { x: 50, y: 28, delay: "1.4s" },
+  { x: 67, y: 42, delay: "0.4s" },
+  { x: 57, y: 68, delay: "1.8s" },
+  { x: 43, y: 68, delay: "0.6s" },
+  { x: 33, y: 42, delay: "1.1s" },
+];
+
+const connections = [
+  [0, 1],
+  [0, 8],
+  [0, 9],
+  [1, 2],
+  [1, 9],
+  [2, 3],
+  [2, 10],
+  [3, 4],
+  [3, 10],
+  [4, 5],
+  [4, 11],
+  [5, 6],
+  [5, 12],
+  [6, 7],
+  [6, 12],
+  [7, 8],
+  [7, 13],
+  [8, 9],
+  [9, 10],
+  [9, 13],
+  [9, 12],
+  [10, 11],
+  [10, 12],
+  [11, 12],
+  [12, 13],
+  [13, 9],
+];
+
 
 export default function Hero() {
   return (
-    <section className="hero section" id="home">
-      <div className="hero-grid container">
-        <Reveal>
-          <div className="hero-copy">
-            <p className="eyebrow">STRATEGY <span>•</span> CONSULTING <span>•</span> GROWTH</p>
-            <h1>Turn complex challenges into <em>confident growth.</em></h1>
-            <p className="hero-text">We help ambitious organizations clarify direction, improve performance, and turn high-value opportunities into practical action.</p>
-            <div className="hero-actions">
-              <a className="btn btn-primary" href="#contact">Book a Free Consultation <ArrowRight size={18} /></a>
-              <a className="btn btn-ghost" href="#services">Explore Our Services</a>
-            </div>
-            <div className="trust-row">
-              <div><strong>10+</strong><span>Years experience</span></div>
-              <div><strong>250+</strong><span>Clients served</span></div>
-              <div><strong>500+</strong><span>Projects delivered</span></div>
-            </div>
-          </div>
-        </Reveal>
+    <section className={styles.hero} id="home">
+      <div className={styles.backgroundGlow} />
+      <div className={styles.gridBackground} />
 
-        <Reveal delay="reveal-delay">
-          <div className="hero-visual">
-            <div className="visual-glow" />
-            <div className="dashboard-card">
-              <div className="dash-top"><span>Growth outlook</span><span className="live-dot">● Live</span></div>
-              <div className="dash-number">+42.8%</div>
-              <div className="dash-label">Qualified opportunities</div>
-              <div className="chart" aria-label="Illustrative upward growth chart">
-                {[26,34,30,49,55,68,82,96].map((h, i) => <span key={i} style={{ height: `${h}%` }} />)}
-              </div>
-              <div className="dash-bottom"><span>Strategy</span><span>Execution</span><span>Optimization</span></div>
+      <div className={styles.container}>
+        <div className={styles.heroContent}>
+
+          {/* LEFT SIDE */}
+          <div className={styles.heroText}>
+
+            <div className={styles.badge}>
+              <span className={styles.badgeIcon}>
+                <Sparkles size={14} />
+              </span>
+
+              AI-POWERED STRATEGY
             </div>
-            <div className="floating-card floating-one"><span className="float-icon">↗</span><div><b>Smart growth</b><small>Strategy-led execution</small></div></div>
-            <div className="floating-card floating-two"><span className="float-icon"><CheckCircle2 size={18}/></span><div><b>95% satisfaction</b><small>Long-term partnerships</small></div></div>
+
+            <h1>
+              Turn complex ideas into{" "}
+              <span>intelligent growth.</span>
+            </h1>
+
+            {/* <p>
+              We combine strategy, technology, and artificial intelligence
+              to help ambitious organizations solve complex problems and
+              build what comes next.
+            </p> */}
+            <p></p>
+            
+
+            <div className={styles.actions}>
+              <a
+                href="#contact"
+                className={`${styles.button} ${styles.primaryButton}`}
+              >
+                Start a Conversation
+                <ArrowRight size={18} />
+              </a>
+
+              <a
+                href="#services"
+                className={`${styles.button} ${styles.secondaryButton}`}
+              >
+                <Play size={16} />
+                Explore Services
+              </a>
+            </div>
+
+            <div className={styles.stats}>
+              <div>
+                <strong>10+</strong>
+                <span>Years experience</span>
+              </div>
+
+              <div>
+                <strong>250+</strong>
+                <span>Clients served</span>
+              </div>
+
+              <div>
+                <strong>500+</strong>
+                <span>Projects delivered</span>
+              </div>
+            </div>
+
           </div>
-        </Reveal>
+
+
+          {/* RIGHT SIDE */}
+          <div className={styles.visual}>
+
+            <div className={styles.orbGlow} />
+
+            <div className={styles.aiOrb}>
+
+              <div className={styles.orbit } />
+              <div className={styles.orbit } />
+              <div className={styles.orbit } />
+
+              <div className={styles.network}>
+
+                <svg
+                  className={styles.connections}
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  {connections.map(([from, to], index) => {
+                    const start = nodes[from];
+                    const end = nodes[to];
+
+                    return (
+                      <line
+                        key={index}
+                        x1={start.x}
+                        y1={start.y}
+                        x2={end.x}
+                        y2={end.y}
+                      />
+                    );
+                  })}
+                </svg>
+
+                {nodes.map((node, index) => (
+                  <span
+                    key={index}
+                    className={styles.node}
+                    style={{
+                      left: `${node.x}%`,
+                      top: `${node.y}%`,
+                      animationDelay: node.delay,
+                    }}
+                  />
+                ))}
+
+              </div>
+
+              <div className={styles.core}>
+
+                <div className={styles.coreInner}>
+                  <span className={styles.corePulse} />
+
+                  <div className={styles.aiText}>
+                    <small>AI</small>
+                    <strong>CORE</strong>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* FLOATING CARD */}
+            <div className={`${styles.floatingCard} ${styles.cardTop}`}>
+              <div className={styles.statusDot} />
+
+              <div>
+                <strong>AI Intelligence</strong>
+                <span>Processing strategy</span>
+              </div>
+            </div>
+
+
+            <div className={`${styles.floatingCard} ${styles.cardBottom}`}>
+              <span className={styles.arrowIcon}>↗</span>
+
+              <div>
+                <strong>+42.8%</strong>
+                <span>Growth potential</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div className={styles.scrollIndicator}>
+        <span />
+        Scroll to explore
       </div>
     </section>
   );
