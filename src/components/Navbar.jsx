@@ -79,8 +79,8 @@ export default function Navbar() {
     ["Services", "#services"],
     ["Why Us", "#why-us"],
     ["Process", "#process"],
-    // ["Testimonials", "#testimonials"],
-    // ["FAQ", "#faq"],
+    ["Testimonials", "#testimonials"],
+    ["FAQ", "#faq"],
   ];
 
   const closeMenu = () => {
