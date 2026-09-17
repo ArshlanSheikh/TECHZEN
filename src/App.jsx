@@ -31,8 +31,8 @@ export default function App() {
         <WhyUs />
         <Process />
         <Industries />
-        <CaseStudies />
-        <Testimonials />
+        {/* <CaseStudies />
+        <Testimonials /> */}
         <Stats />
         <FAQ />
         <Contact />
