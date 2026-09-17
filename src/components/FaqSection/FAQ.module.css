@@ -1,0 +1,303 @@
+/* =========================================================
+   FAQ SECTION
+   ========================================================= */
+
+.section {
+  position: relative;
+  padding: 120px 0;
+  background:
+    radial-gradient(
+      circle at 15% 40%,
+      rgba(96, 165, 250, 0.12),
+      transparent 35%
+    ),
+    #ffffff;
+  color: #0f172a;
+  overflow: hidden;
+}
+
+.container {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================================================
+   FAQ GRID
+   ========================================================= */
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(400px, 1.2fr);
+  gap: 80px;
+  align-items: start;
+}
+
+/* =========================================================
+   HEADING
+   ========================================================= */
+
+.sectionHeading {
+  position: sticky;
+  top: 120px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #2563eb;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: clamp(38px, 4vw, 58px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.sectionHeading h2 em {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  color: #60a5fa;
+}
+
+.sectionHeading > p {
+  max-width: 430px;
+  margin: 28px 0 24px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #64748b;
+}
+
+/* =========================================================
+   TEXT LINK
+   ========================================================= */
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+.textLink:hover {
+  color: #1d4ed8;
+  gap: 12px;
+}
+
+.textLink svg {
+  transition: transform 0.25s ease;
+}
+
+.textLink:hover svg {
+  transform: translateX(2px);
+}
+
+/* =========================================================
+   FAQ LIST
+   ========================================================= */
+
+.faqList {
+  border-top: 1px solid #dbeafe;
+}
+
+.faqItem {
+  border-bottom: 1px solid #dbeafe;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.faqItem:hover {
+  background: #f8fbff;
+}
+
+.faqItem.open {
+  border-bottom-color: #93c5fd;
+  background: #f8fbff;
+}
+
+/* =========================================================
+   QUESTION
+   ========================================================= */
+
+.faqQuestion {
+  width: 100%;
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 4px;
+  border: 0;
+  background: transparent;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.faqQuestion:hover {
+  color: #2563eb;
+}
+
+.faqQuestion span {
+  flex: 1;
+}
+
+/* =========================================================
+   PLUS ICON
+   ========================================================= */
+
+.plusIcon {
+  flex-shrink: 0;
+  color: #64748b;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+
+.faqItem.open .plusIcon {
+  transform: rotate(45deg);
+  color: #2563eb;
+}
+
+/* =========================================================
+   ANSWER
+   ========================================================= */
+
+.faqAnswer {
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease;
+}
+
+.faqAnswer p {
+  margin: 0;
+  padding: 0 42px 24px 4px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+.faqQuestion:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 100px 0;
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .sectionHeading {
+    position: static;
+  }
+
+  .sectionHeading h2 {
+    font-size: clamp(38px, 7vw, 52px);
+  }
+
+  .sectionHeading > p {
+    max-width: 600px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .container {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .faqGrid {
+    gap: 40px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 38px;
+  }
+
+  .sectionHeading h2 em {
+    display: inline;
+  }
+
+  .sectionHeading > p {
+    margin-top: 22px;
+    font-size: 14px;
+  }
+
+  .faqQuestion {
+    min-height: 70px;
+    padding: 20px 2px;
+    font-size: 15px;
+  }
+
+  .faqAnswer p {
+    padding: 0 30px 22px 2px;
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .section {
+    padding: 70px 0;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .sectionHeading h2 {
+    font-size: 34px;
+  }
+
+  .faqQuestion {
+    gap: 14px;
+    font-size: 14px;
+  }
+
+  .faqQuestion svg {
+    width: 18px;
+    height: 18px;
+  }
+}

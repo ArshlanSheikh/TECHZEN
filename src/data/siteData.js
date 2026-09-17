@@ -7,14 +7,7 @@ export const company = {
   hours: "Mon–Fri, 9:00 AM–6:00 PM",
 };
 
-export const services = [
-  { number: "01", icon: "business", title: "Business Consulting", description: "Diagnose performance gaps and identify practical opportunities for stronger, more sustainable growth." },
-  { number: "02", icon: "strategy", title: "Strategy Consulting", description: "Build a focused strategic roadmap around market position, priorities, customers, and competitive advantage." },
-  { number: "03", icon: "digital", title: "Digital Transformation", description: "Modernize processes, technology, and operating models without losing sight of the people using them." },
-  { number: "04", icon: "marketing", title: "Marketing Consulting", description: "Sharpen positioning, customer acquisition, messaging, and go-to-market decisions to unlock demand." },
-  { number: "05", icon: "finance", title: "Financial Consulting", description: "Improve financial planning, commercial visibility, resource allocation, and long-term decision making." },
-  { number: "06", icon: "management", title: "Management Consulting", description: "Strengthen operations, leadership, team effectiveness, and organizational performance." },
-];
+
 
 export const benefits = [
   ["01", "Experienced consultants", "Senior-level thinking focused on the decisions that have the biggest impact."],
@@ -53,4 +46,88 @@ export const faqs = [
   ["How much does consulting cost?", "Fees depend on the scope, complexity, and duration of the engagement. Contact us with your requirements and we'll outline the appropriate next step."],
   ["How long does a typical project take?", "Projects can range from focused advisory sprints to multi-month transformation programs. We define milestones and deliverables before work begins."],
   ["Do you offer customized consulting packages?", "Yes. We tailor engagements to the problem, internal capabilities, desired outcomes, and pace of your organization."],
+];
+
+
+
+
+export const projects = [
+  {
+    id: "project-01",
+    title: "Enterprise E-Commerce Platform",
+    category: "E-Commerce",
+    description:
+      "A scalable e-commerce platform designed to manage products, customers, payments, orders, inventory, and shipping from a single system.",
+    image: "https://s3-figma-hubfile-images-production-cdn-cgi.figma.com/cdn-cgi/image/format=auto,quality=85/hub/file/carousel/img/50fbf02187ca0d4b2c2ae3a27e02d52ba9fbbf74",
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Razorpay",
+    ],
+    link: "https://example.com",
+  },
+
+  {
+    id: "project-02",
+    title: "Online Assessment Platform",
+    category: "EdTech",
+    description:
+      "An online assessment platform that allows students to attempt tests, track results, and prepare for competitive examinations.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDb4Ap_pOtx4jIl2BN1p-rXhiVZ41nfTU8JsMoE5-InWn0PoNuK4ZWIJKu&s=10",
+    technologies: [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "REST API",
+    ],
+    link: "https://example.com",
+  },
+
+  {
+    id: "project-03",
+    title: "Business Management Platform",
+    category: "Business Solution",
+    description:
+      "A custom digital platform built to simplify business workflows, improve operational visibility, and support data-driven decisions.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv15GWKvhmOr_1KPs8jpbRRkx7nnH_0GeAUph9QYi0npm-NoOlM8To_Wm6&s=10",
+    technologies: [
+      "React",
+      "Express",
+      "MongoDB",
+      "JWT",
+    ],
+    link: "https://example.com",
+  },
+];
+
+
+
+
+export const services = [
+  {
+    id: "custom-software-development",
+    title: "Custom Software Development",
+  },
+  {
+    id: "erp-management",
+    title: "ERP Management",
+  },
+  {
+    id: "web-development",
+    title: "Web Development",
+  },
+  {
+    id: "android-app-development",
+    title: "Android App Development",
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing",
+  },
+  {
+    id: "seo",
+    title: "SEO",
+  },
 ];

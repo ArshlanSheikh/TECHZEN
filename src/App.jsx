@@ -1,44 +1,59 @@
 import { useEffect } from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import TrustLogos from "./components/TrustLogos";
-import About from "./components/About";
-import Services from "./components/Services";
-import WhyUs from "./components/WhyUs";
-import Process from "./components/Process";
-import Industries from "./components/Industries";
-import CaseStudies from "./components/CaseStudies";
-import Testimonials from "./components/Testimonials";
-import Stats from "./components/Stats";
-import FAQ from "./components/FAQ";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import BackToTop from "./components/BackToTop";
+
+import { Routes,Route } from "react-router-dom";
+
+
+
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
+import Layout from "./Layout/Layout";
+
 
 export default function App() {
-  useEffect(() => {
-    document.title = "TechZen Consulting | Strategy, Growth & Transformation";
-  }, []);
+ 
 
   return (
     <>
-      <Navbar />
-      <main id="main">
-        <Hero />
-        <TrustLogos />
-        <About />
-        <Services />
-        <WhyUs />
-        <Process />
-        <Industries />
-        {/* <CaseStudies />
-        <Testimonials /> */}
-        <Stats />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
-      <BackToTop />
+      <Routes>
+
+        <Route element ={<Layout/>}>
+          <Route path="/" element={<Home/>} ></Route>
+          <Route path="/about" element={<About/>} ></Route>
+          <Route path="/contact" element={<Contact/>} ></Route>
+        </Route>
+
+      </Routes>
+  
     </>
   );
 }
+
+
+
+
+
+
+
+
+// export default function App() {
+ 
+
+//   return (
+//     <>
+     
+//       <Navbar/>
+//         <Hero />
+//         <About />
+//         <Services />
+//         <WhyUs />
+//         <Process />
+//         <Project/>
+//         <FAQ />
+//         <Contact />
+//       <Footer />
+
+
+//       <BackToTop />
+//     </>
+//   );

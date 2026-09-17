@@ -1,0 +1,461 @@
+/* =========================================================
+   PROCESS / ROADMAP SECTION
+   ========================================================= */
+
+.section {
+  position: relative;
+  padding: 130px 0 150px;
+  background:
+    radial-gradient(
+      circle at 12% 30%,
+      rgba(96, 165, 250, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 88% 75%,
+      rgba(59, 130, 246, 0.08),
+      transparent 30%
+    ),
+    #ffffff;
+  color: #0f172a;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* =========================================================
+   ROADMAP
+   ========================================================= */
+
+.roadmap {
+  position: relative;
+  margin-top: 100px;
+  padding: 20px 0;
+}
+
+/* =========================================================
+   CENTER ROAD LINE
+   ========================================================= */
+
+.roadLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #bfdbfe 8%,
+      #60a5fa 50%,
+      #bfdbfe 92%,
+      transparent
+    );
+}
+
+/* =========================================================
+   ROAD ITEM
+   ========================================================= */
+
+.roadItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 220px;
+}
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.roadContent {
+  position: relative;
+  width: min(430px, 90%);
+  padding: 28px 32px;
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background: rgba(248, 251, 255, 0.92);
+  box-shadow:
+    0 15px 45px rgba(37, 99, 235, 0.06);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.roadContent:hover {
+  transform: translateY(-4px);
+  border-color: #93c5fd;
+  box-shadow:
+    0 20px 55px rgba(37, 99, 235, 0.12);
+}
+
+/* =========================================================
+   LEFT / RIGHT POSITIONING
+   ========================================================= */
+
+.roadItem.left .roadContent {
+  grid-column: 1;
+  justify-self: end;
+  margin-right: 70px;
+}
+
+.roadItem.right .roadContent {
+  grid-column: 2;
+  justify-self: start;
+  margin-left: 70px;
+}
+
+/* =========================================================
+   STEP META
+   ========================================================= */
+
+.stepMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stepNumber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stepLabel {
+  color: #60a5fa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.roadContent h3 {
+  margin: 0 0 10px;
+  color: #0f172a;
+  font-size: 23px;
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.roadContent p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   ROAD DOT
+   ========================================================= */
+
+.roadDot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #60a5fa;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 2;
+  box-shadow:
+    0 0 0 7px rgba(239, 246, 255, 0.95),
+    0 5px 20px rgba(37, 99, 235, 0.12);
+}
+
+.roadDot span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+/* =========================================================
+   CONNECTOR FROM CARD TO ROAD
+   ========================================================= */
+
+.roadContent::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 70px;
+  height: 1px;
+  background: #bfdbfe;
+}
+
+.roadItem.left .roadContent::after {
+  right: -70px;
+}
+
+.roadItem.right .roadContent::after {
+  left: -70px;
+}
+
+/* =========================================================
+   ALTERNATING SPACING
+   ========================================================= */
+
+.roadItem:nth-child(2) {
+  margin-top: 0;
+}
+
+.roadItem:nth-child(3) {
+  margin-top: -5px;
+}
+
+.roadItem:nth-child(4) {
+  margin-top: -5px;
+}
+
+.roadItem:nth-child(5) {
+  margin-top: -5px;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 110px 0 120px;
+  }
+
+  .roadmap {
+    margin-top: 75px;
+  }
+
+  .roadContent {
+    width: min(350px, 90%);
+    padding: 25px;
+  }
+
+  .roadItem.left .roadContent {
+    margin-right: 50px;
+  }
+
+  .roadItem.right .roadContent {
+    margin-left: 50px;
+  }
+
+  .roadContent::after {
+    width: 50px;
+  }
+
+  .roadItem.left .roadContent::after {
+    right: -50px;
+  }
+
+  .roadItem.right .roadContent::after {
+    left: -50px;
+  }
+}
+
+/* =========================================================
+   MOBILE ROADMAP
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .section {
+    padding: 90px 0 100px;
+  }
+
+  .container {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .roadmap {
+    margin-top: 55px;
+    padding: 10px 0 10px 25px;
+  }
+
+  /* Move road to the left */
+
+  .roadLine {
+    left: 10px;
+    transform: none;
+    top: 0;
+    bottom: 0;
+  }
+
+  .roadItem {
+    display: block;
+    min-height: auto;
+    margin: 0 0 35px !important;
+    padding-left: 30px;
+  }
+
+  .roadItem:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Reset desktop positioning */
+
+  .roadItem.left .roadContent,
+  .roadItem.right .roadContent {
+    width: 100%;
+    margin: 0;
+    justify-self: auto;
+  }
+
+  /* Mobile dot */
+
+  .roadDot {
+    left: 10px;
+    top: 38px;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    box-shadow:
+      0 0 0 6px rgba(239, 246, 255, 0.95),
+      0 5px 18px rgba(37, 99, 235, 0.12);
+  }
+
+  .roadDot span {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Remove horizontal connectors */
+
+  .roadContent::after {
+    display: none;
+  }
+
+  .roadContent {
+    padding: 24px 22px;
+    border-radius: 14px;
+  }
+
+  .roadContent h3 {
+    font-size: 20px;
+  }
+
+  .roadContent p {
+    font-size: 13px;
+  }
+
+  .stepMeta {
+    margin-bottom: 16px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .section {
+    padding: 75px 0 85px;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .roadmap {
+    margin-top: 45px;
+    padding-left: 22px;
+  }
+
+  .roadItem {
+    padding-left: 27px;
+  }
+
+  .roadLine {
+    left: 8px;
+  }
+
+  .roadDot {
+    left: 8px;
+  }
+
+  .roadContent {
+    padding: 22px 18px;
+  }
+
+  .roadContent h3 {
+    font-size: 18px;
+  }
+
+  .roadContent p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .roadContent {
+    transition: none;
+  }
+}
+
+
+
+
+.sectionHeading {
+  max-width: 760px;
+  margin-bottom: 70px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #2563eb;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.sectionHeading h2 em {
+  font-style: normal;
+  color: #3b82f6;
+}
+
+.description {
+  max-width: 650px;
+  margin: 24px 0 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #64748b;
+}
