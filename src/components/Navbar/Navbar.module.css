@@ -46,17 +46,17 @@
 }
 
 .brandMark {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 
   display: grid;
   place-items: center;
 
-  border-radius: 10px;
+  border-radius: 8px;
 
   background: linear-gradient(
     135deg,
-    #2563eb,
+    #000208,
     #60a5fa
   );
 
@@ -80,7 +80,10 @@
   margin-top: 3px;
 
   color: #64748b;
+  color: #051944;
 
+  font-family: cursive;
+  font-weight: 800;
   font-size: 9px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -110,6 +113,10 @@
   background: transparent;
 
   color: #0f172a;
+  color: #010d28;
+  /* color: red; */
+
+  font-family: cursive;
 
   font-size: 14px;
   font-weight: 600;
@@ -124,6 +131,7 @@
 .desktopNav a:hover,
 .dropdownTrigger:hover {
   color: #2563eb;
+  color: #03e9f9;
 }
 
 .desktopNav a:not(.navCta)::after,
@@ -171,17 +179,24 @@
 
   width: 320px;
 
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+
   transform: translateX(-50%) translateY(10px);
 
-  background: white;
+  background: rgb(250, 248, 248);
+  /* background: rgb(90, 20, 20); */
+
 
   border: 1px solid #e2e8f0;
   border-radius: 16px;
 
-  box-shadow:
-    0 20px 60px rgba(15, 23, 42, 0.12);
-
+  box-shadow:0 20px 60px rgba(15, 23, 42, 0.12);
   padding: 10px;
+  padding-left: 20px;
+
 
   opacity: 0;
   visibility: hidden;
@@ -211,10 +226,11 @@
 }
 
 .dropdownItem {
-  min-height: 54px;
+  min-height: 24px;
 
   display: grid;
   grid-template-columns: 30px 1fr auto;
+
 
   align-items: center;
   gap: 10px;
@@ -231,7 +247,8 @@
 }
 
 .dropdownItem:hover {
-  background: #eff6ff;
+  /* background: #eff6ff; */
+  
 
   color: #2563eb;
 
@@ -503,7 +520,7 @@
   .menuButton {
     display: grid;
     place-items: center;
-  }
+  } 
 
   .navWrap {
     height: 72px;
@@ -521,6 +538,6 @@
   }
 
   .brandText {
-    font-size: 14px;
+    font-size: 22px;
   }
 }

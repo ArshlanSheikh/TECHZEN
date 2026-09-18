@@ -1,6 +1,6 @@
 export const company = {
   name: "TechZen",
-  descriptor: "Consulting",
+  descriptor: "Consulting & Software Devlopment",
   email: "hello@example.com",
   phone: "+91 00000 00000",
   location: "Your City, India",

@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 import { company, projects, services } from "../../data/siteData";
 import styles from "./Navbar.module.css";
 
+
+
+
 export default function Navbar() {
+
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
@@ -52,17 +56,13 @@ export default function Navbar() {
     <>
       {/* BACKDROP */}
       <div
-        className={`${styles.backdrop} ${
-          open ? styles.backdropVisible : ""
-        }`}
+        className={`${styles.backdrop} ${ open ? styles.backdropVisible : "" }`}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
       <header
-        className={`${styles.header} ${
-          scrolled ? styles.scrolled : ""
-        }`}
+        className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
       >
         <div className={styles.container}>
           <div className={styles.navWrap}>
@@ -74,7 +74,7 @@ export default function Navbar() {
               onClick={closeMenu}
               aria-label={`${company.name} ${company.descriptor} home`}
             >
-              <span className={styles.brandMark}>T</span>
+              <span className={styles.brandMark}>Tz</span>
 
               <span className={styles.brandText}>
                 {company.name}
