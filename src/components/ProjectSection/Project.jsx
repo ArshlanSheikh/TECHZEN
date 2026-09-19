@@ -29,7 +29,7 @@ export default function Project() {
         <div className={styles.projectsList}>
           {projects.map((project, index) => (
             <article
-              id={`project-${project.id}`}
+              id={`projects-${project.id}`}
               className={`${styles.project} ${
                 index % 2 !== 0 ? styles.reverse : ""
               }`}

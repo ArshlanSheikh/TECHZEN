@@ -18,6 +18,7 @@ const initial = {
 };
 
 export default function Contact() {
+
   const [form, setForm] = useState(initial);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState({
@@ -27,8 +28,8 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
 
   const update = (e) => {
-    const { name, value, type, checked } = e.target;
 
+    const { name, value, type, checked } = e.target;
     setForm((f) => ({
       ...f,
       [name]: type === "checkbox" ? checked : value,
@@ -38,6 +39,7 @@ export default function Contact() {
       ...e2,
       [name]: "",
     }));
+
   };
 
   const validate = () => {
@@ -74,6 +76,7 @@ export default function Contact() {
   };
 
   const submit = async (e) => {
+
     e.preventDefault();
 
     setStatus({
@@ -110,10 +113,10 @@ export default function Contact() {
 
         setStatus({
           type: "success",
-          text:
-            "Demo submission successful. Add VITE_CONTACT_ENDPOINT to .env to send real inquiries.",
+          text:"Demo submission successful. Add VITE_CONTACT_ENDPOINT to .env to send real inquiries.",
         });
-      } else {
+      } 
+      else {
         const controller = new AbortController();
 
         const timeout = setTimeout(() => {
@@ -221,7 +224,7 @@ export default function Contact() {
             </div>
 
             {/* HONEYPOT */}
-            <div
+            {/* <div
               className={styles.honeypot}
               aria-hidden="true"
             >
@@ -235,7 +238,7 @@ export default function Contact() {
                   autoComplete="off"
                 />
               </label>
-            </div>
+            </div> */}
 
             {/* NAME + EMAIL */}
             <div className={styles.formRow}>

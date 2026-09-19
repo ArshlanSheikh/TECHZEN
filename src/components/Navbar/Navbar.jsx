@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import { company, projects, services } from "../../data/siteData";
+import { company, projects, services ,Tranings } from "../../data/siteData";
 import styles from "./Navbar.module.css";
 
 
@@ -29,7 +29,8 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-
+  const [mobileTrainingsOpen, setMobileTrainingsOpen] = useState(false);
+  
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -56,6 +57,7 @@ export default function Navbar() {
     setOpen(false);
     setMobileProjectsOpen(false);
     setMobileServicesOpen(false);
+    setMobileTrainingsOpen(false);
   };
 
   const homeLinks = [
@@ -63,7 +65,6 @@ export default function Navbar() {
     ["About", "/#about"],
     ["Why Us", "/#why-us"],
     ["Process", "/#process"],
-    ["Testimonials", "/#testimonials"],
     ["FAQ", "/#faq"],
   ];
 
@@ -112,44 +113,27 @@ export default function Navbar() {
                 </Link>
               ))}
 
-              {/* SERVICES DROPDOWN */}
-              <div className={styles.dropdown}>
-                <button className={styles.dropdownTrigger}>
-                  Services
-                  <ChevronDown size={15} />
-                </button>
+              
 
-                <div className={styles.dropdownMenu}>
-                  {services.map((service, index) => {
-                    return (
-                      <Link
-                        key={service.id}
-                        to={`/#services-${service.id}`}
-                        className={styles.dropdownItem}
-                      >
-                        <span className={styles.dropdownNumber}>
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
+              <NavbarDropdown
+                title="Services"
+                items={services}
+                viewAllLink="/#services"
+              />
 
-                        <span>{service.title}</span>
+              <NavbarDropdown
+                title="Projects"
+                items={projects}
+                viewAllLink="/#projects"
+              />
 
-                        <ArrowRight
-                          size={15}
-                          className={styles.dropdownArrow}
-                        />
-                      </Link>
-                    );
-                  })}
+              <NavbarDropdown
+                title="Trainings"
+                items={Tranings}
+                viewAllLink="/#tranings"
+              />
 
-                  <Link
-                    to="/#services"
-                    className={styles.dropdownFooter}
-                  >
-                    View all services
-                    <ArrowRight size={15} />
-                  </Link>
-                </div>
-              </div>
+
 
               {/* WHY US */}
               <Link to="/#why-us">
@@ -160,43 +144,6 @@ export default function Navbar() {
               <Link to="/#process">
                 Process
               </Link>
-
-              {/* PROJECTS DROPDOWN */}
-              <div className={styles.dropdown}>
-                <button className={styles.dropdownTrigger}>
-                  Projects
-                  <ChevronDown size={15} />
-                </button>
-
-                <div className={styles.dropdownMenu}>
-                  {projects.map((project, index) => (
-                    <Link
-                      key={project.id || project.title}
-                      to={`/#project-${project.id}`}
-                      className={styles.dropdownItem}
-                    >
-                      <span className={styles.dropdownNumber}>
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
-                      <span>{project.title}</span>
-
-                      <ArrowRight
-                        size={15}
-                        className={styles.dropdownArrow}
-                      />
-                    </Link>
-                  ))}
-
-                  <Link
-                    to="/projects"
-                    className={styles.dropdownFooter}
-                  >
-                    View all projects
-                    <ArrowRight size={15} />
-                  </Link>
-                </div>
-              </div>
 
               {/* FAQ */}
               <Link to="/#faq">
@@ -212,6 +159,10 @@ export default function Navbar() {
                 <ArrowRight size={16} />
               </Link>
             </nav>
+
+
+
+
 
             {/* MOBILE MENU BUTTON */}
             <button
@@ -274,7 +225,7 @@ export default function Navbar() {
             </Link>
 
             {/* SERVICES */}
-            <div className={styles.mobileDropdown}>
+            {/* <div className={styles.mobileDropdown}>
               <button
                 className={styles.mobileDropdownTrigger}
                 onClick={() =>
@@ -316,31 +267,11 @@ export default function Navbar() {
                   );
                 })}
               </div>
-            </div>
+            </div> */}
 
-            {/* WHY US */}
-            <Link
-              to="/#why-us"
-              onClick={closeMenu}
-            >
-              <Target />
-              <span>Why Us</span>
-              {/* <ArrowRight size={17} /> */}
-            </Link>
 
-            {/* PROCESS */}
-            <Link
-              to="/#process"
-              onClick={closeMenu}
-            >
-             
-              <Route />
-              <span>Process</span>
-              {/* <ArrowRight size={17} /> */}
-            </Link>
-
-            {/* PROJECTS */}
-            <div className={styles.mobileDropdown}>
+             {/* PROJECTS */}
+            {/* <div className={styles.mobileDropdown}>
               <button
                 className={styles.mobileDropdownTrigger}
                 onClick={() =>
@@ -350,7 +281,7 @@ export default function Navbar() {
                 }
               >
                 <FolderCode />
-                <span>Projects</span>
+                <span>Products</span>
 
                 <ChevronDown
                   size={18}
@@ -388,16 +319,70 @@ export default function Navbar() {
                   <ArrowRight size={15} />
                 </Link>
               </div>
-            </div>
+            </div> */}
 
-            {/* TESTIMONIALS */}
-            {/* <Link
-              to="/#testimonials"
+            <NavbarDropdownMobileView
+              title="Services"
+              items={services}
+              isOpen={mobileServicesOpen}
+              onToggle={() =>
+                setMobileServicesOpen(
+                  !mobileServicesOpen
+                )
+              }
+              icon={BriefcaseBusiness}
+              closeMenu={closeMenu}
+            />
+
+            <NavbarDropdownMobileView
+              title="Projects"
+              items={projects}
+              isOpen={mobileProjectsOpen}
+              onToggle={() =>
+                setMobileProjectsOpen(
+                  !mobileProjectsOpen
+                )
+              }
+              icon={BriefcaseBusiness}
+              closeMenu={closeMenu}
+            />
+
+            <NavbarDropdownMobileView
+              title="Tranings"
+              items={Tranings}
+              isOpen={mobileTrainingsOpen}
+              onToggle={() =>
+                setMobileTrainingsOpen(
+                  !mobileTrainingsOpen
+                )
+              }
+              icon={BriefcaseBusiness}
+              closeMenu={closeMenu}
+            />
+
+
+
+
+            {/* WHY US */}
+            <Link
+              to="/#why-us"
               onClick={closeMenu}
             >
-              <span>Testimonials</span>
-              <ArrowRight size={17} />
-            </Link> */}
+              <Target />
+              <span>Why Us</span>
+              {/* <ArrowRight size={17} /> */}
+            </Link>
+
+            {/* PROCESS */}
+            <Link
+              to="/#process"
+              onClick={closeMenu}
+            >
+             
+              <Route />
+              <span>Process</span>
+              {/* <ArrowRight size={17} /> */}
+            </Link>
 
             {/* FAQ */}
             <Link
@@ -429,6 +414,104 @@ export default function Navbar() {
 
         </div>
       </aside>
+
+
     </>
   );
 }
+
+
+
+
+const NavbarDropdownMobileView = ({
+  title,
+  items,
+  isOpen,
+  onToggle,
+  icon: Icon,
+  closeMenu,
+}) => {
+  return (
+    <div className={styles.mobileDropdown}>
+      <button
+        className={styles.mobileDropdownTrigger}
+        onClick={onToggle}
+      >
+        {Icon && <Icon />}
+
+        <span>{title}</span>
+
+        <ChevronDown
+          size={16}
+          className={
+            isOpen ? styles.chevronOpen : ""
+          }
+        />
+      </button>
+
+      <div
+        className={`${styles.mobileDropdownMenu} ${
+          isOpen
+            ? styles.mobileDropdownOpen
+            : ""
+        }`}
+      >
+        {items.map((item) => (
+          <Link
+            key={item.id} 
+            to={`/#${title.toLowerCase().replace(/\s+/g, '-')}-${item.id}`}
+            onClick={closeMenu}
+          >
+            {item.title}
+            <ArrowRight size={15} />
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+
+
+
+const NavbarDropdown = ({ title, items, viewAllLink }) => {
+  return (
+    <div className={styles.dropdown}>
+      <button className={styles.dropdownTrigger}>
+        {title}
+        <ChevronDown size={15} />
+      </button>
+
+      <div className={styles.dropdownMenu}>
+        {items.map((item, index) => (
+          <Link
+            key={item.id}
+            // to={`/#${title.toLowerCase().replace(/\s+/g, '-')}-${item.id}`}
+            to={`/#${title.toLowerCase().replace(/\s+/g, '-')}-${item.id}`}
+            className={styles.dropdownItem}
+          >
+            <span className={styles.dropdownNumber}>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <span>{item.title}</span>
+
+            <ArrowRight
+              size={15}
+              className={styles.dropdownArrow}
+            />
+          </Link>
+        ))}
+
+        <Link
+          to={viewAllLink}
+          className={styles.dropdownFooter}
+        >
+          View All {title}
+          <ArrowRight size={15} />
+        </Link>
+      </div>
+    </div>
+  );
+};
+

@@ -109,8 +109,29 @@ export const projects = [
     ],
     link: "https://example.com",
   },
+  
 ];
 
+export const Tranings = [
+  {
+    id: "Summer-Training",
+    title: "Summer Training",
+    description:
+      "Build tailored digital products that fit your workflows, customers, and long-term growth plans.",
+    icon: "code",
+    color: "#2563eb",
+    features: ["Product development", "Web applications", "System integration"],
+  },
+  {
+    id: "winter-Training",
+    title: "Winter Training",
+    description:
+      "Build tailored digital products that fit your workflows, customers, and long-term growth plans.",
+    icon: "code",
+    color: "#2563eb",
+    features: ["Product development", "Web applications", "System integration"],
+  },
+]
 
 
 
@@ -118,8 +139,7 @@ export const services = [
   {
     id: "custom-software-development",
     title: "Custom Software Development",
-    description:
-      "Build tailored digital products that fit your workflows, customers, and long-term growth plans.",
+    description:"Build tailored digital products that fit your workflows, customers, and long-term growth plans.",
     icon: "code",
     color: "#2563eb",
     features: ["Product development", "Web applications", "System integration"],

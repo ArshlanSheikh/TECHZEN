@@ -519,6 +519,10 @@
   .formRow {
     grid-template-columns: 1fr;
     gap: 0;
+    gap: 5px important;
+  }
+  .field{
+    margin-bottom: 0px;
   }
 
   .formHeader h3 {
