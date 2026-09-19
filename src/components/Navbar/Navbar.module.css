@@ -134,6 +134,7 @@
   color: #03e9f9;
 }
 
+
 .desktopNav a:not(.navCta)::after,
 .dropdownTrigger::after {
   content: "";
@@ -304,9 +305,16 @@
 
   border-radius: 10px;
 
-  background: #2563eb;
-
+  background: #010d28 !important;
+  background: #031030 !important;
+  background: linear-gradient(
+    165deg,
+    #000208,
+    #60a5fa
+  ) !important;
   color: white !important;
+
+
 
   box-shadow:
     0 10px 25px rgba(37,99,235,0.25);
@@ -332,8 +340,9 @@
   width: 44px;
   height: 44px;
 
-  border: 1px solid #cbd5e1;
+  /* border: 1px solid #cbd5e1; */
   border-radius: 10px;
+  border: none;
 
   background: white;
 
@@ -343,8 +352,13 @@
 }
 
 .menuButtonOpen {
-  background: #2563eb;
+  background: linear-gradient(
+    165deg,
+    #000208,
+    #60a5fa
+  );
   color: white;
+  border-radius: 50%;
 }
 
 /* =========================================================
@@ -429,7 +443,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap :10px;
 
   border: none;
   border-bottom: 1px solid #e2e8f0;
@@ -441,14 +455,15 @@
   text-decoration: none;
 
   font-size: 15px;
-  font-weight: 500;
+  font-family: cursive;
+  font-weight: 800;
 
   cursor: pointer;
 }
 
 .mobileNav a:hover,
 .mobileDropdownTrigger:hover {
-  color: #2563eb;
+  color: #0aeded;
 }
 
 .mobileDropdownMenu {
@@ -474,7 +489,7 @@
 }
 
 .mobileDropdownMenu a:hover {
-  color: #2563eb;
+  color: #0aeded;
 }
 
 .chevronOpen {

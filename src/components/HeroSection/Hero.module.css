@@ -5,6 +5,8 @@
   isolation: isolate;
 
   min-height: calc(90vh - var(--header-height));
+  width: 100%;
+  max-width: 1500px;
 
   margin-top: var(--header-height);
 
@@ -248,9 +250,8 @@
 
 
 .primaryButton {
-  color: #04101d;
-  font-size: 15px;
   color: #0f0f24;
+  font-size: 15px;
 
   background: #ffffff;
 
@@ -1132,6 +1133,8 @@
     --header-height: 70px;
 
     min-height: auto;
+    width: 100%;
+    max-width: 1500px;
 
     margin-top: var(--header-height);
   }
@@ -1151,6 +1154,7 @@
   }
 
   .heroText {
+    width: 100%;
     max-width: 100%;
 
     text-align: center;
@@ -1161,6 +1165,8 @@
   }
 
   .heroText h1 {
+    margin-inline: auto;
+
     margin-top: 20px;
 
     font-size: clamp(
@@ -1183,12 +1189,17 @@
   }
 
   .actions {
+    width: 100%;
+
+    align-items: center;
     justify-content: center;
     flex-direction: column;
   }
 
   .button {
-    width: 70%;
+    width: min(100%, 280px);
+    margin-inline: auto;
+    box-sizing: border-box;
   }
 
   .stats {
@@ -1264,12 +1275,24 @@
 ======================================== */
 
 @media (max-width: 420px) {
+
   .heroContent {
     padding-top: 50px;
   }
-
+ 
   .heroText h1 {
-    font-size: 38px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    font-size: 30px;
+    line-height: 1.2;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .heroText h1 span {
+    display: block;
   }
 
   .stats {

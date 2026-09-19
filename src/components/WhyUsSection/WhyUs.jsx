@@ -3,42 +3,6 @@
 
 
 
-// import SectionHeading from "../SectionHeading";
-// import { benefits } from "../../data/siteData";
-// import styles from "./WhyUs.module.css";
-
-// export default function WhyUs() {
-//   return (
-//     <section className={styles.section} id="why-us">
-//       <div className={styles.container}>
-
-//         {/* SECTION HEADING */}
-//         <SectionHeading
-//           light
-//           eyebrow="WHY TECHZEN"
-//           title="Advice is easy. <em>Progress is the point.</em>"
-//           description="We measure our value by what changes after the engagement—not by the number of slides we produce."
-//         />
-
-//         {/* BENEFITS */}
-//         <div className={styles.benefitsGrid}>
-//           {benefits.map(([n, t, d]) => (
-//             <div className={styles.benefit} key={n}>
-//               <span>{n}</span>
-
-//               <h3>{t}</h3>
-
-//               <p>{d}</p>
-//             </div>
-//           ))}
-//         </div>
-
-//       </div>
-//     </section>
-//   );
-// }
-
-
 
 
 import { benefits } from "../../data/siteData";

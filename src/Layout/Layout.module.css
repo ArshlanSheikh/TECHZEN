@@ -1,3 +1,15 @@
+:global(*) {
+  box-sizing: border-box;
+}
+
+:global(html),
+:global(body),
+:global(#root) {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
 .layout {
   min-height: 100vh;
   display: flex;

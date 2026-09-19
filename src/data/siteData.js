@@ -65,6 +65,9 @@ export const projects = [
       "Express",
       "MongoDB",
       "Razorpay",
+      "Cloudinery",
+      "Shiprocket",
+      "Redis"
     ],
     link: "https://example.com",
   },
@@ -81,6 +84,9 @@ export const projects = [
       "Node.js",
       "MongoDB",
       "REST API",
+      "Cloudinery",
+      "Razorpay",
+      "Redis"
     ],
     link: "https://example.com",
   },
@@ -97,6 +103,9 @@ export const projects = [
       "Express",
       "MongoDB",
       "JWT",
+      "Cloudinery",
+      "Redis",
+      "Node",
     ],
     link: "https://example.com",
   },
@@ -109,25 +118,55 @@ export const services = [
   {
     id: "custom-software-development",
     title: "Custom Software Development",
+    description:
+      "Build tailored digital products that fit your workflows, customers, and long-term growth plans.",
+    icon: "code",
+    color: "#2563eb",
+    features: ["Product development", "Web applications", "System integration"],
   },
   {
     id: "erp-management",
     title: "ERP Management",
+    description:
+      "Connect your core business operations with reliable systems, clearer processes, and better visibility.",
+    icon: "business",
+    color: "#7c3aed",
+    features: ["ERP implementation", "Process automation", "System support"],
   },
   {
     id: "web-development",
     title: "Web Development",
+    description:
+      "Create fast, accessible websites that communicate your value and turn attention into action.",
+    icon: "globe",
+    color: "#0891b2",
+    features: ["Website development", "Responsive design", "Performance optimization"],
   },
   {
     id: "android-app-development",
     title: "Android App Development",
+    description:
+      "Launch focused mobile experiences that make your services more useful, connected, and convenient.",
+    icon: "mobile",
+    color: "#059669",
+    features: ["Android applications", "API integration", "App maintenance"],
   },
   {
     id: "digital-marketing",
     title: "Digital Marketing",
+    description:
+      "Build focused marketing systems that reach the right audience and create measurable demand.",
+    icon: "marketing",
+    color: "#ea580c",
+    features: ["Campaign planning", "Content strategy", "Customer acquisition"],
   },
   {
     id: "seo",
     title: "SEO",
+    description:
+      "Improve your search visibility with useful content, technical foundations, and sustainable growth.",
+    icon: "analytics",
+    color: "#db2777",
+    features: ["Technical SEO", "Search strategy", "Performance reporting"],
   },
 ];

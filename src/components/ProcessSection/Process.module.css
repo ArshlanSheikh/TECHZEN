@@ -459,3 +459,114 @@
   line-height: 1.7;
   color: #64748b;
 }
+
+/* =========================================================
+   MOBILE CENTERED ROADMAP
+   ========================================================= */
+
+@media (max-width: 650px) {
+  .roadmap {
+    padding: 10px 0;
+  }
+
+  .roadLine {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+  }
+
+  .roadItem,
+  .roadItem.left,
+  .roadItem.right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    min-height: 205px;
+    margin: 0 0 18px !important;
+    padding-left: 0;
+  }
+
+  .roadItem:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .roadItem.left .roadContent,
+  .roadItem.right .roadContent {
+    width: calc(100% - 18px);
+    margin: 0;
+  }
+
+  .roadItem.left .roadContent {
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .roadItem.right .roadContent {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  .roadDot {
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translate(-50%, -50%);
+  }
+
+  .roadDot span {
+    width: 6px;
+    height: 6px;
+  }
+
+  .roadContent::after {
+    display: block;
+    top: 50%;
+    width: 18px;
+  }
+
+  .roadItem.left .roadContent::after {
+    right: -18px;
+  }
+
+  .roadItem.right .roadContent::after {
+    left: -18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .roadmap {
+    padding: 8px 0;
+  }
+
+  .roadItem,
+  .roadItem.left,
+  .roadItem.right {
+    min-height: 190px;
+  }
+
+  .roadItem.left .roadContent,
+  .roadItem.right .roadContent {
+    width: calc(100% - 12px);
+  }
+
+  .roadContent {
+    padding: 20px 14px;
+  }
+
+  .roadContent h3 {
+    font-size: 17px;
+  }
+
+  .roadContent p {
+    font-size: 11px;
+  }
+
+  .roadItem.left .roadContent::after {
+    right: -12px;
+  }
+
+  .roadItem.right .roadContent::after {
+    left: -12px;
+  }
+}

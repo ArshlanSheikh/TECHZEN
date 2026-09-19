@@ -1,134 +1,55 @@
-// import { ArrowUpRight, BriefcaseBusiness, Compass, Cpu, Megaphone, WalletCards, UsersRound } from "lucide-react";
-// import { services } from "../data/siteData";
-// import Reveal from "./Reveal";
-// import SectionHeading from "./SectionHeading";
-
-// const icons = { business: BriefcaseBusiness, strategy: Compass, digital: Cpu, marketing: Megaphone, finance: WalletCards, management: UsersRound };
-
-// export default function Services() {
-//   return <section className="section section-soft" id="services"><div className="container">
-//     <Reveal><SectionHeading eyebrow="WHAT WE DO" title="Expertise built around <em>your next move.</em>" description="From strategic direction to operational improvement, we bring the right expertise to the problem in front of you." /></Reveal>
-//     <div className="services-grid">{services.map(s => {
-//       const Icon = icons[s.icon];
-//       return <Reveal key={s.number}><article className="service-card"><span className="service-num">{s.number}</span><div className="icon-box"><Icon size={23}/></div><h3>{s.title}</h3><p>{s.description}</p><a href="#contact" className="text-link">Discuss this service <ArrowUpRight size={16}/></a></article></Reveal>
-//     })}</div>
-//   </div></section>;
-// }
-
-
-
-
-
-
-
 
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import {
   ArrowUpRight,
   BarChart3,
-  BrainCircuit,
   BriefcaseBusiness,
   CheckCircle2,
   Code2,
-  LineChart,
   Megaphone,
-  ShieldCheck,
   ChevronLeft,
   ChevronRight,
+  Globe2,
+  Smartphone,
 } from "lucide-react";
 
+import { services } from "../../data/siteData";
 import styles from "./Services.module.css";
 
-const services = [
-  {
-    title: "Business Strategy",
-    description:
-      "Build a clear roadmap that turns ambitious business goals into measurable and sustainable growth.",
-    icon: BriefcaseBusiness,
-    color: "#2563eb",
-    features: [
-      "Growth planning",
-      "Market analysis",
-      "Strategic roadmap",
-    ],
-  },
-  {
-    title: "AI & Automation",
-    description:
-      "Use intelligent automation to reduce repetitive work and create smarter, faster operations.",
-    icon: BrainCircuit,
-    color: "#7c3aed",
-    features: [
-      "AI solutions",
-      "Workflow automation",
-      "Smart systems",
-    ],
-  },
-  {
-    title: "Digital Transformation",
-    description:
-      "Modernize your digital infrastructure and create experiences built for the future.",
-    icon: Code2,
-    color: "#0891b2",
-    features: [
-      "Digital strategy",
-      "Technology planning",
-      "Process redesign",
-    ],
-  },
-  {
-    title: "Growth Consulting",
-    description:
-      "Identify high-value opportunities and turn them into sustainable revenue and business growth.",
-    icon: LineChart,
-    color: "#059669",
-    features: [
-      "Revenue growth",
-      "Performance analysis",
-      "Optimization",
-    ],
-  },
-  {
-    title: "Marketing Strategy",
-    description:
-      "Create focused marketing systems that attract the right audience and convert demand.",
-    icon: Megaphone,
-    color: "#ea580c",
-    features: [
-      "Brand strategy",
-      "Campaign planning",
-      "Customer acquisition",
-    ],
-  },
-  {
-    title: "Performance Analytics",
-    description:
-      "Turn complex business data into clear insights that support confident business decisions.",
-    icon: BarChart3,
-    color: "#db2777",
-    features: [
-      "Data analysis",
-      "KPI dashboards",
-      "Business insights",
-    ],
-  },
-  {
-    title: "Risk & Compliance",
-    description:
-      "Protect your organization with practical risk management and compliance frameworks.",
-    icon: ShieldCheck,
-    color: "#475569",
-    features: [
-      "Risk assessment",
-      "Compliance",
-      "Process controls",
-    ],
-  },
-];
+const icons = {
+  analytics: BarChart3,
+  business: BriefcaseBusiness,
+  code: Code2,
+  globe: Globe2,
+  marketing: Megaphone,
+  mobile: Smartphone,
+};
 
 export default function Services() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const serviceId = location.hash.replace("#services-", "");
+    const serviceIndex = services.findIndex(
+      (service) => service.id === serviceId
+    );
+
+    if (serviceIndex >= 0) {
+      setActive(serviceIndex);
+      setPaused(true);
+
+      window.requestAnimationFrame(() => {
+        document.getElementById("services")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+    }
+  }, [location.hash]);
+
 
   /*
     Automatically rotate every 2.2 seconds
@@ -171,11 +92,9 @@ export default function Services() {
     - left-2
     - right-1
     - right-2
-    - hidden
   */
   const getPosition = (index) => {
     let difference = index - active;
-
     if (difference > services.length / 2) {
       difference -= services.length;
     }
@@ -252,12 +171,13 @@ export default function Services() {
           <div className={styles.carousel}>
 
             {services.map((service, index) => {
-              const Icon = service.icon;
+              const Icon = icons[service.icon] || BriefcaseBusiness;
 
               const position = getPosition(index);
 
               return (
                 <article
+                  id={`service-${service.id}`}
                   key={service.title}
                   className={`${styles.card} ${
                     styles[position]

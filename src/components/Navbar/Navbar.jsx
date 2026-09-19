@@ -7,6 +7,21 @@ import styles from "./Navbar.module.css";
 
 
 
+import {
+  BriefcaseBusiness,
+  Target,
+  Route,
+  FolderCode,
+  MessagesSquare,
+  House,
+  UsersRound
+  
+} from "lucide-react";
+
+
+
+
+
 
 export default function Navbar() {
 
@@ -106,21 +121,17 @@ export default function Navbar() {
 
                 <div className={styles.dropdownMenu}>
                   {services.map((service, index) => {
-                    const title = Array.isArray(service)
-                      ? service[0]
-                      : service.title;
-
                     return (
                       <Link
-                        key={title}
-                        to={`/#services`}
+                        key={service.id}
+                        to={`/#services-${service.id}`}
                         className={styles.dropdownItem}
                       >
                         <span className={styles.dropdownNumber}>
                           {String(index + 1).padStart(2, "0")}
                         </span>
 
-                        <span>{title}</span>
+                        <span>{service.title}</span>
 
                         <ArrowRight
                           size={15}
@@ -161,7 +172,7 @@ export default function Navbar() {
                   {projects.map((project, index) => (
                     <Link
                       key={project.id || project.title}
-                      to={`/projects/${project.id}`}
+                      to={`/#project-${project.id}`}
                       className={styles.dropdownItem}
                     >
                       <span className={styles.dropdownNumber}>
@@ -237,10 +248,6 @@ export default function Navbar() {
       >
         <div className={styles.sidebarInner}>
 
-          <div className={styles.sidebarHeader}>
-            <span>Navigation</span>
-            <span className={styles.sidebarLine} />
-          </div>
 
           <nav className={styles.mobileNav}>
 
@@ -249,8 +256,10 @@ export default function Navbar() {
               to="/#home"
               onClick={closeMenu}
             >
+              
+              <House />
               <span>Home</span>
-              <ArrowRight size={17} />
+              {/* <ArrowRight size={17} /> */}
             </Link>
 
             {/* ABOUT */}
@@ -258,8 +267,10 @@ export default function Navbar() {
               to="/#about"
               onClick={closeMenu}
             >
+      
+              <UsersRound />
               <span>About</span>
-              <ArrowRight size={17} />
+              {/* <ArrowRight size={17} /> */}
             </Link>
 
             {/* SERVICES */}
@@ -272,10 +283,11 @@ export default function Navbar() {
                   )
                 }
               >
+                <BriefcaseBusiness />
                 <span>Services</span>
 
                 <ChevronDown
-                  size={18}
+                  size={16}
                   className={
                     mobileServicesOpen
                       ? styles.chevronOpen
@@ -292,17 +304,13 @@ export default function Navbar() {
                 }`}
               >
                 {services.map((service) => {
-                  const title = Array.isArray(service)
-                    ? service[0]
-                    : service.title;
-
                   return (
                     <Link
-                      key={title}
-                      to="/#services"
+                      key={service.id}
+                      to={`/#services-${service.id}`}
                       onClick={closeMenu}
                     >
-                      {title}
+                      {service.title}
                       <ArrowRight size={15} />
                     </Link>
                   );
@@ -315,8 +323,9 @@ export default function Navbar() {
               to="/#why-us"
               onClick={closeMenu}
             >
+              <Target />
               <span>Why Us</span>
-              <ArrowRight size={17} />
+              {/* <ArrowRight size={17} /> */}
             </Link>
 
             {/* PROCESS */}
@@ -324,8 +333,10 @@ export default function Navbar() {
               to="/#process"
               onClick={closeMenu}
             >
+             
+              <Route />
               <span>Process</span>
-              <ArrowRight size={17} />
+              {/* <ArrowRight size={17} /> */}
             </Link>
 
             {/* PROJECTS */}
@@ -338,6 +349,7 @@ export default function Navbar() {
                   )
                 }
               >
+                <FolderCode />
                 <span>Projects</span>
 
                 <ChevronDown
@@ -360,7 +372,7 @@ export default function Navbar() {
                 {projects.map((project) => (
                   <Link
                     key={project.id}
-                    to={`/projects/${project.id}`}
+                    to={`/#project-${project.id}`}
                     onClick={closeMenu}
                   >
                     {project.title}
@@ -379,21 +391,23 @@ export default function Navbar() {
             </div>
 
             {/* TESTIMONIALS */}
-            <Link
+            {/* <Link
               to="/#testimonials"
               onClick={closeMenu}
             >
               <span>Testimonials</span>
               <ArrowRight size={17} />
-            </Link>
+            </Link> */}
 
             {/* FAQ */}
             <Link
               to="/#faq"
               onClick={closeMenu}
             >
+         
+              <MessagesSquare />
               <span>FAQ</span>
-              <ArrowRight size={17} />
+              {/* <ArrowRight size={17} /> */}
             </Link>
 
             {/* CTA */}
