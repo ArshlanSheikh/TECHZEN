@@ -84,7 +84,7 @@ export default function Navbar() {
           <div className={styles.navWrap}>
 
             {/* LOGO */}
-            <Link
+            {/* <Link
               className={styles.brand}
               to="/#home"
               onClick={closeMenu}
@@ -99,7 +99,13 @@ export default function Navbar() {
                   {company.descriptor}
                 </span>
               </span>
-            </Link>
+            </Link> */}
+
+            <img className={styles.logo} src="TechZenLogo.png" alt="" />
+
+
+
+
 
             {/* DESKTOP NAV */}
             <nav

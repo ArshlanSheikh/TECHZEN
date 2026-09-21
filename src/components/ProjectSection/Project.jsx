@@ -2,6 +2,8 @@ import { ArrowUpRight } from "lucide-react";
 import { projects } from "../../data/siteData";
 import styles from "./Project.module.css";
 
+
+
 export default function Project() {
   return (
     <section className={styles.section} id="projects">
@@ -102,3 +104,5 @@ export default function Project() {
     </section>
   );
 }
+
+
