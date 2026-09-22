@@ -9,7 +9,6 @@ const initial = {
   phone: "",
   company: "",
   service: "",
-  budget: "",
   contactMethod: "Email",
   message: "",
   consent: false,
@@ -223,23 +222,7 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* HONEYPOT */}
-            {/* <div
-              className={styles.honeypot}
-              aria-hidden="true"
-            >
-              <label>
-                Website
-                <input
-                  name="website"
-                  value={form.website}
-                  onChange={update}
-                  tabIndex="-1"
-                  autoComplete="off"
-                />
-              </label>
-            </div> */}
-
+           
             {/* NAME + EMAIL */}
             <div className={styles.formRow}>
               <Field
@@ -284,7 +267,7 @@ export default function Contact() {
               />
             </div>
 
-            {/* SERVICE + BUDGET */}
+            {/* SERVICE + Contact method */}
             <div className={styles.formRow}>
               <SelectField
                 label="Service Required"
@@ -301,23 +284,6 @@ export default function Contact() {
               />
 
               <SelectField
-                label="Budget Range"
-                name="budget"
-                value={form.budget}
-                onChange={update}
-                options={[
-                  "Select a range",
-                  "Under ₹50,000",
-                  "₹50,000 – ₹2,00,000",
-                  "₹2,00,000 – ₹5,00,000",
-                  "₹5,00,000+",
-                  "Prefer to discuss",
-                ]}
-              />
-            </div>
-
-            {/* CONTACT METHOD */}
-            <SelectField
               label="Preferred Contact Method"
               name="contactMethod"
               value={form.contactMethod}
@@ -329,6 +295,9 @@ export default function Contact() {
                 "Video call",
               ]}
             />
+            </div>
+
+           
 
             {/* MESSAGE */}
             <div className={styles.field}>
