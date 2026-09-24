@@ -12,6 +12,7 @@ import Services from '../../components/ServicesSection/Services'
 import WhyUs from '../../components/WhyUsSection/WhyUs'
 import About from '../../pages/About/About'
 import Contact from '../../pages/Contact/Contact'
+import OurTeam from "../../components/OurTeamSection/OurTeamSection";
 
 
 
@@ -59,6 +60,7 @@ const Home =()=>{
                <WhyUs />
                <Process />
                <Project/>
+               <OurTeam/>
                <FAQ />
                <Contact/>
         </>
